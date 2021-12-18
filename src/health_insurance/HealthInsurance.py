@@ -4,19 +4,20 @@ import pandas as pd
 
 class HealthInsurance(object):
     def __init__(self):
-        self.home_path              = 'features/'
+        self.homepath              = 'features/'
+        #self.homepath = '/home/gutto/Repos/Insurance-Cross-Sell/src/features/'
         self.age_scaler             = pickle.load(open(self.homepath + 'age_scaler.pkl', 'rb'))
-        self.annual_premium_scaler  = pickle.load(open(self.homepath + 'anual_premium_scaler.pkl', 'rb'))
+        self.annual_premium_scaler  = pickle.load(open(self.homepath + 'annual_premium_scaler.pkl', 'rb'))
         self.vintage_scaler         = pickle.load(open(self.homepath + 'vintage_scaler.pkl', 'rb'))
 
     def data_cleaning(self, df1):
         df1 = df1.loc[:, ~ df1.columns.duplicated()]
         
-        cols_name = ['id', 'gender', 'age', 'region_code', 'policy_sales_channel', 'driving_license'
+        cols_name = ['id', 'gender', 'age', 'region_code', 'policy_sales_channel', 'driving_license',
                      'vehicle_age', 'vehicle_damage', 'previously_insured', 'annual_premium', 'vintage',
                      'response']
 
-        df1.columns = cols_name
+        df1 = df1[cols_name]
         
         return df1
 
@@ -40,9 +41,9 @@ class HealthInsurance(object):
             fe_encoding = (df3.groupby(col).size())/len(df3)
             df3.loc[:, col] = df3[col].map(fe_encoding)
 
-        df3['age'] = self.age_scaler.transform(df3[['age']].values)
-        df3['annual_premium'] = self.annual_premium_scaler.transform(df3[['annual_premium']].values)
-        df3['vintage'] = self.vintage_scaler.transform(df3[['vintage']].values)
+        df3['age'] = self.age_scaler.fit_transform(df3[['age']].values)
+        df3['annual_premium'] = self.annual_premium_scaler.fit_transform(df3[['annual_premium']].values)
+        df3['vintage'] = self.vintage_scaler.fit_transform(df3[['vintage']].values)
 
         cols_selected = ['annual_premium', 'vintage', 'gender','age', 'region_code', 'vehicle_damage',
                          'previously_insured', 'policy_sales_channel']

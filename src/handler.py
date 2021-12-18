@@ -2,12 +2,14 @@ import os
 import pickle
 import pandas as pd
 from flask import Flask, request, Response
-from HealthInsurance import HealthInsurance
+from health_insurance.HealthInsurance import HealthInsurance
 
-path = '/model/cross_sell.pkl'
+
+#path = '/home/gutto/Repos/Insurance-Cross-Sell/src/model/'
+path = 'model/'
 
 # loading model
-model = pickle.load(open(path, 'rb'))
+model = pickle.load(open(path + 'cross_sell.pkl', 'rb'))
 print('Loaded!')
 
 print('\n----- INITIALIZING SERVER -----\n')
@@ -47,5 +49,6 @@ def healthinsurance_prediction():
 
 
 if __name__ == '__main__':
-    port = os.environ.get('PORT', 5000)
-    app.run('0.0.0.0.', port = port, debug = True)
+    #app.run('0.0.0.0')
+    port = int(os.environ.get('PORT', 5000))
+    app.run('0.0.0.0.', port = port)
