@@ -20,7 +20,7 @@
 
 > Disclaimer: This is a fictional bussiness case, the company, context, CEO and bussiness questions exist only in my imagination.
 
-The Insurance All is a company that provides health insurance to your customers for a long time, however, the sales team is interested in offering a new service, a car insurance.
+The Insurance All is a company that provides health insurance to your customers for a long time, however, the sales team is interested in offer a new service, a car insurance.
 
 Similar to the health insurance, customers of this vehicle insurance plan need to pay annually to Insurance All in order to be insured for an eventual incident.
 
