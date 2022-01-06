@@ -10,7 +10,11 @@
 - [3. Solution Strategy](#3-solution-strategy)
 - [4. Mind Map Hypothesis](#4-mind-map-hypothesis)
 - [5. Top 3 Data Insights](#5-top-3-data-insights)
-- 
+- [6. Machine Learning Modelling](#6-machine-learning-modelling)
+- [7. Machine Learning Performance](#7-machine-learning-performance)
+- [8. Bussiness Performance](#8-bussiness-performance)
+- [9. Deploy](#9-deploy)
+- [10. Next Steps](#10-next-steps) 
 
 ## 1. Business Problem
 
@@ -259,6 +263,7 @@ Located in /predict, send a list of clients to get a probability of car insuranc
 
 Any employee of the Insurance All Company can use this [spreadsheet](https://docs.google.com/spreadsheets/d/1O3bM00Xxp7Jl_Q3GziYvIrwFrsei60J-YF9-SHt_7l4/edit?usp=sharing) and establish a ranking of customers most likely to purchase vehicle insurance, with direct production data.
 
+![Example](reports/figures/cross-sell.gif)
 
 ## 10. Next Steps
 
